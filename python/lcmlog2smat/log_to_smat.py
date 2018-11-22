@@ -74,6 +74,9 @@ def msg_getconstants (lcm_msg):
 
 
 def msg_to_dict (data, e_channel, msg, statusMsg, verbose=False, lcm_timestamp=-1):
+    e_channel=e_channel.replace('://','_')
+    e_channel=e_channel.replace('/','_')
+    e_channel=e_channel.replace('.','_')
 
     # Initializing channel
     if e_channel not in data:
@@ -296,7 +299,7 @@ d = load(filename);
 """.format(_outBaseName=outBaseName, _outFname=outFname, _fullPathName=fullPathName)
             
             print(loadFunc)
-            mfile.write(loadFunc);
+            mfile.write(unicode(loadFunc));
             mfile.close()
 
 
